@@ -1,12 +1,8 @@
-(function () {
   'use strict';
 
   var todomvc = angular.module('todomvc');
-  todomvc.controller('TodoCtrl', [TodoCtrl]);
 
-  function TodoCtrl($scope, $location, $filter, todoStorage) {
-
-    'use strict';
+  todomvc.controller('TodoCtrl', ['$scope', '$location', '$filter', 'todoStorage', function ($scope, $location, $filter, todoStorage) {
 
     var todos = $scope.todos = todoStorage.get();
     $scope.newTodo = '';
@@ -63,7 +59,7 @@
     };
 
     $scope.removeTodo = function(todo) {
-      todos.splice(todos.index(todo), 1);
+      todos.splice(todos.indexOf(todo), 1);
     };
 
     $scope.clearCompletedTodos = function() {
@@ -75,6 +71,5 @@
       todos.forEach(function (todo) {
         todo.completed = !completed;
       });
-    }
-  };
-}());
+    };
+}]);

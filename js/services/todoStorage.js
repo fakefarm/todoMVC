@@ -1,15 +1,16 @@
-angular.module('todomvc').factory('todoStorage', [todoStorage]);
+'use strict';
 
-function todoStorage(){
-  'use strict';
+var todomvc = angular.module('todomvc');
+
+todomvc.factory('todoStorage', function() {
   var STORAGE_ID = 'todos-angularjs';
-
   return {
     get: function () {
-      return JSON.parse(localStorage.getItems(STORAGE_ID) || '[]');
+
+      return JSON.parse(localStorage.getItem(STORAGE_ID) || '[]');
     },
     put: function(todos) {
       localStorage.setItem(STORAGE_ID, JSON.stringify(todos));
     }
   };
-}
+});

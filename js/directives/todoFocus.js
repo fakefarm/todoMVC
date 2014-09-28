@@ -1,9 +1,7 @@
 (function(){
   'use strict';
   var todomvc = angular.module('todomvc');
-  todomvc.directive('todoFocus', [todoFocus]);
-
-  function todoFocus($timeout) {
+  todomvc.directive('todoFocus', function todoFocus($timeout) {
     return function(scope, elem, attrs) {
       scope.$watch(attrs.todoFocus, function(newVal) {
         if (newVal) {
@@ -13,6 +11,5 @@
         }
       });
     };
-  }
-
+  });
 }());

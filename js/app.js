@@ -1,4 +1,1 @@
-(function(){
-  'use strict';
-  var todomvc = angular.module('todomvc', []);
-}());
+var todomvc = angular.module('todomvc', []);
